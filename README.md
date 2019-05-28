@@ -14,6 +14,22 @@ Workaround for the default retain behavior of the sas merge statement
     KSharpe
     https://communities.sas.com/t5/user/viewprofilepage/user-id/18408
 
+    Recent simplification by
+
+    Keintz, Mark
+    mkeintz@wharton.upenn.edu
+
+    data want;
+
+      merge template (in=ina) incomplete;
+      by id;
+      if ina;
+      output;
+
+      call missing(of _all_);
+
+    run;
+
     *_                   _
     (_)_ __  _ __  _   _| |_
     | | '_ \| '_ \| | | | __|
